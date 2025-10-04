@@ -169,9 +169,6 @@ const App: React.FC = () => {
               </a>
             </div>
           </div>
-          <p className="mt-8 text-2xl text-[#7B241C] font-serif-display [text-shadow:0_2px_4px_rgba(123,36,28,0.3)]">
-            Khamma Ghani Sa
-          </p>
         </div>
       </footer>
     </div>

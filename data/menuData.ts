@@ -87,8 +87,8 @@ export const menuData: MenuCategory[] = [
     items: [
         { id: 39, name: 'Laal Maans', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/Laal%20Maans.jpg?updatedAt=1759595386934' },
         { id: 40, name: 'Mutton Curry', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/Mutton%20Curry.jpg?updatedAt=1759595893812' },
-        { id: 41, name: 'Mutton Masala', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/carry%20non%20veg.jpg?updatedAt=1759213927719' },
-        { id: 42, name: 'Bhunjma Gosth', price: 595, imageUrl: '' },
+        { id: 41, name: 'Mutton Masala', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/mutton%20masala.jpg?updatedAt=1759606632492' },
+        { id: 42, name: 'Bhunjma Gosth', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/bhunman%20ghoasst.jpg?updatedAt=1759606765980' },
         { id: 43, name: 'Mutton Rahra', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/mutton%20rahra.jpg?updatedAt=1759606202035' },
         { id: 44, name: 'Gosht Rogan Josh', price: 595, imageUrl: 'https://ik.imagekit.io/j1fgksdwx/Gosht%20Rogan%20Josh.jpg?updatedAt=1759595283830' },
         { id: 45, name: 'Mutton Biryani', price: 595, imageUrl:'https://ik.imagekit.io/j1fgksdwx/Mutton%20Biryani.jpg?updatedAt=1759595893464' },
