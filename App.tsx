@@ -15,7 +15,6 @@ import WebsiteIcon from './components/icons/WebsiteIcon';
 const App: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
-  const [orderPlaced, setOrderPlaced] = useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState<string>('');
 
   const formatId = (category: string) => category.toLowerCase().replace(/\s+/g, '-');
@@ -92,13 +91,6 @@ const App: React.FC = () => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
   
-  const handlePlaceOrder = () => {
-    setOrderPlaced(true);
-    setCartItems([]);
-    setIsCartOpen(false);
-    setTimeout(() => setOrderPlaced(false), 5000); // Hide message after 5 seconds
-  };
-  
   const totalCartItems = useMemo(() => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   }, [cartItems]);
@@ -119,7 +111,6 @@ const App: React.FC = () => {
         cartItems={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveFromCart}
-        onPlaceOrder={handlePlaceOrder}
       />
 
       {/* Floating Cart Button */}
@@ -136,14 +127,6 @@ const App: React.FC = () => {
         )}
       </button>
 
-      {/* Order Placed Notification */}
-      {orderPlaced && (
-        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#7B241C] text-white p-6 rounded-lg shadow-2xl z-50 text-center">
-            <h3 className="text-2xl font-serif-display font-bold mb-2">Thank You!</h3>
-            <p className="text-lg">Your order has been placed. Our staff will attend to you shortly.</p>
-        </div>
-      )}
-      
       <footer className="text-center py-12 bg-[#F5EFE1] mt-16 border-t border-[#7B241C]/20">
         <div className="container mx-auto px-4">
           <div className="space-y-6">

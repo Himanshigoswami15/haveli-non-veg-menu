@@ -10,10 +10,9 @@ interface CartProps {
   cartItems: CartItem[];
   onUpdateQuantity: (itemId: number, newQuantity: number) => void;
   onRemoveItem: (itemId: number) => void;
-  onPlaceOrder: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onPlaceOrder }) => {
+const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem }) => {
 
   return (
     <>
@@ -59,15 +58,9 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems, onUpdateQuantit
 
           {cartItems.length > 0 && (
             <footer className="p-6 bg-[#F5EFE1] border-t border-[#7B241C]/20 shadow-inner">
-              <p className="text-center text-gray-600 mb-4">
-                A member of our staff will confirm your order and total at your table.
+              <p className="text-center text-gray-600">
+                Please show this list to a member of our staff to place your order.
               </p>
-              <button
-                onClick={onPlaceOrder}
-                className="w-full bg-[#7B241C] text-white font-bold py-4 px-4 rounded-lg hover:bg-[#641E16] transition-colors text-lg"
-              >
-                Place Order
-              </button>
             </footer>
           )}
         </div>
