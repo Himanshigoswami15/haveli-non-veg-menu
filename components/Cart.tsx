@@ -59,7 +59,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems, onUpdateQuantit
           {cartItems.length > 0 && (
             <footer className="p-6 bg-[#F5EFE1] border-t border-[#7B241C]/20 shadow-inner">
               <p className="text-center text-gray-600">
-                Please show this list to a member of our staff to place your order.
+                Our attentive staff will be with you shortly to ensure your order is placed to perfection.
               </p>
             </footer>
           )}
