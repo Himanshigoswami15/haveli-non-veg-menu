@@ -35,7 +35,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, onAddToCart }) => {
             className="w-full bg-[#7B241C] text-white font-bold py-2 px-4 rounded-md hover:bg-[#641E16] transition-colors flex items-center justify-center gap-2"
           >
             <PlusIcon />
-            Add to Order
+            Add to Cart
           </button>
         </div>
       </div>
