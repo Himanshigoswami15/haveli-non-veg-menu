@@ -8,6 +8,24 @@ interface MenuItemCardProps {
 }
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, onAddToCart }) => {
+  const typeIcon = {
+    veg: (
+      <span className="mt-1.5 flex-shrink-0 w-4 h-4 border-2 border-green-600 flex items-center justify-center rounded-sm p-0.5" aria-label="Vegetarian">
+        <span className="w-full h-full bg-green-600"></span>
+      </span>
+    ),
+    'non-veg': (
+      <span className="mt-1.5 flex-shrink-0 w-4 h-4 border-2 border-[#7B241C] flex items-center justify-center rounded-sm p-0.5" aria-label="Non-Vegetarian">
+        <span className="w-full h-full bg-[#7B241C]"></span>
+      </span>
+    ),
+    egg: (
+       <span className="mt-1.5 flex-shrink-0 w-4 h-4 border-2 border-yellow-500 flex items-center justify-center rounded-sm p-0.5" aria-label="Contains Egg">
+        <span className="w-full h-full bg-yellow-500"></span>
+      </span>
+    ),
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-lg shadow-zinc-900/5 overflow-hidden flex flex-col transition-all duration-300 hover:shadow-[0_10px_25px_-5px_rgba(123,36,28,0.25),0_8px_10px_-6px_rgba(123,36,28,0.2)] border border-transparent hover:border-[#7B241C]/20">
       {item.imageUrl && (
@@ -18,10 +36,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, onAddToCart }) => {
       <div className="p-6 flex-grow flex flex-col">
         <div className="flex justify-between items-start mb-2">
            <div className="flex items-start gap-3 pr-4">
-             {/* Non-Veg Icon */}
-            <span className="mt-1.5 flex-shrink-0 w-4 h-4 border-2 border-[#7B241C] flex items-center justify-center rounded-sm p-0.5" aria-label="Non-Vegetarian">
-                <span className="w-full h-full bg-[#7B241C]"></span>
-            </span>
+             {typeIcon[item.type]}
             <h3 className="text-xl font-bold text-gray-800 [text-shadow:0_1px_2px_rgba(123,36,28,0.2)]">{item.name}</h3>
           </div>
           <p className="text-xl font-semibold text-[#B8860B] whitespace-nowrap">₹{item.price}</p>

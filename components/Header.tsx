@@ -35,7 +35,7 @@ const Header: React.FC = () => {
             alt="The Haveli Resort Logo"
             className="h-56 md:h-64 mx-auto [filter:drop-shadow(0_4px_15px_rgba(123,36,28,0.5))]"
           />
-          <p className="mt-2 text-xl text-[#7B241C] font-serif-display font-bold [text-shadow:0_2px_4px_rgba(123,36,28,0.4)]">Non-Veg Menu</p>
+          <p className="mt-2 text-xl text-[#7B241C] font-serif-display font-bold [text-shadow:0_2px_4px_rgba(123,36,28,0.4)]">Digital Menu</p>
           <p className="mt-1 text-lg text-gray-700 font-serif-display tracking-wider font-bold [text-shadow:0_1px_3px_rgba(123,36,28,0.2)]">A Royal Culinary Experience</p>
         </div>
 

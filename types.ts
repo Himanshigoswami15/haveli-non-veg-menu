@@ -4,6 +4,7 @@ export interface MenuItem {
   description?: string;
   price: number;
   imageUrl?: string;
+  type: 'veg' | 'non-veg' | 'egg';
 }
 
 export interface MenuCategory {
