@@ -92,7 +92,7 @@ export const menuData: MenuCategory[] = [
   {
     category: 'Pizza',
     items: [
-      { id: 90, name: 'Margherita Pizza', description: 'Pizza features a bubbly cheese crust, tomato sauce, fresh mozzarella and topped with herbs', price: 365, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/garden%20pizza.webp?updatedAt=1758211138342' },
+      { id: 90, name: 'Margherita Pizza', description: 'Pizza features a bubbly cheese crust, tomato sauce, fresh mozzarella and topped with herbs', price: 365, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/margrita.jpeg?updatedAt=1758211139579' },
       { id: 91, name: 'Veg. Haveli Garden Pizza', description: 'Loaded with capsicum, onion, mushroom, golden corn, tomato along with cheese', price: 395, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/garden%20pizza.webp?updatedAt=1758211138342' },
       { id: 92, name: 'Peri Peri Cottage Pizza', description: 'Stuffed with black olives, capsicum, onion, mushroom, golden corn, tomato, jalapeno, and extra cheese', price: 415, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/PERI%20PERI%20COTTAGE%20PIZZA.jpeg?updatedAt=1759175311787' },
       { id: 14, name: 'Chicken Pizza Supreme', description: 'Flat bread topped with cheese, chilies, onion, garlic sauce and chunks of chicken', price: 455, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/Chicken%20Pizza%20Supreme.jpg?updatedAt=1759604152655' },
