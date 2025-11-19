@@ -22,14 +22,36 @@ const App: React.FC = () => {
 
   const filteredMenuData = useMemo(() => {
     if (!searchTerm.trim()) return menuData;
-    const lowerTerm = searchTerm.toLowerCase();
-    return menuData.map(category => ({
-      ...category,
-      items: category.items.filter(item => 
-        item.name.toLowerCase().includes(lowerTerm) || 
-        item.description?.toLowerCase().includes(lowerTerm)
-      )
-    })).filter(category => category.items.length > 0);
+
+    // Normalize text: lowercase, remove special chars (keep alphanumeric & spaces)
+    const normalize = (text: string) => 
+      text.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+
+    const searchTokens = normalize(searchTerm).split(' ').filter(Boolean);
+
+    if (searchTokens.length === 0) return menuData;
+
+    return menuData.map(category => {
+      const categoryNameNormalized = normalize(category.category);
+      const subCategoryNormalized = category.subCategory ? normalize(category.subCategory) : '';
+
+      const filteredItems = category.items.filter(item => {
+        const itemText = normalize(`${item.name} ${item.description || ''}`);
+        // Include item type (veg/non-veg/egg) in search context
+        const typeText = normalize(item.type); 
+        
+        // Combine all contexts
+        const fullContext = `${categoryNameNormalized} ${subCategoryNormalized} ${itemText} ${typeText}`;
+        
+        // AND logic: Item must match ALL search tokens
+        return searchTokens.every(token => fullContext.includes(token));
+      });
+
+      return {
+        ...category,
+        items: filteredItems
+      };
+    }).filter(category => category.items.length > 0);
   }, [searchTerm]);
 
   useEffect(() => {
