@@ -163,7 +163,7 @@ export const menuData: MenuCategory[] = [
         { id: 305, name: 'CHICKEN TANGRI KEBAB', price: 395, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/CHICKEN%20TANGRI%20KEBAB.jpg' },
         { id: 306, name: 'CHICKEN MALAI TIKKA', price: 349, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/CHICKEN%20MALAI%20TIKKA%201.jpg' },
         { id: 307, name: 'ACHARI CHICKEN TIKKA', price: 349, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/ACHARI%20CHICKEN%20TIKKA.jpg' },
-        { id: 308, name: 'CHICKEN KALI MIRCH TIKKA', price: 349, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/CHICKEN%20KALI%20MIRCH%20TIKKA'.jpg' },
+        { id: 308, name: 'CHICKEN KALI MIRCH TIKKA', price: 349, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/CHICKEN%20KALI%20MIRCH%20TIKKA.jpg' },
         { id: 309, name: 'CHICKEN PAHADI TIKKA', price: 349, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/CHICKEN%20PAHADI%20TIKKA.jpg' },
         { id: 310, name: 'CHICKEN GILAFI SEEK KEBAB', price: 349, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/CHICKEN%20GILAFI%20SEEK%20KEBAB.jpg' },
         { id: 311, name: 'MUTTON SEEK KEBAB', price: 495, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/MUTTON%20SEEK%20KEBAB.jpg' },
@@ -351,3 +351,4 @@ export const menuData: MenuCategory[] = [
     ]
   },
 ];
+    
