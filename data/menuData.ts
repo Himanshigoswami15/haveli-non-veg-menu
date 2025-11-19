@@ -1,3 +1,4 @@
+
 import { MenuCategory } from '../types';
 
 export const menuData: MenuCategory[] = [
@@ -136,6 +137,24 @@ export const menuData: MenuCategory[] = [
         { id: 147, name: 'Paneer Stick', description: 'Chunks of marinated paneer, pineapple, onion, capsicum, tomatoes are grilled on a hot plate', price: 399, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/PANEER%20STICK.jpg?updatedAt=1759148980072' },
         { id: 99, name: 'Mushroom Duplex', description: 'Mushrooms are stuffed with potatoes, mint & spices, coated with yogurt batter and grilled in tandoor', price: 399, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/MUSHROOM%20DUPLEX.jpg?updatedAt=1759147518369' },
         { id: 100, name: 'Mushroom Tikka', description: 'Marinated mushrooms are stacked with diced onions, bell pepper on skewers & grilled in tandoor', price: 355, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/MUSHROOM%20TIKKA.jpg?updatedAt=1759147518681' },
+        { id: 210, name: 'PANEER AMRITSARI TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/amritsari%20tikka.jpg' },
+        { id: 211, name: 'PANEER ANGRA TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/angara%20tikka.jpg'},
+        { id: 212, name: 'PERI PERI PANEER TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PERI%20PERI%20PANEER%20TIKKA.jpg' },
+        { id: 213, name: 'PANEER ACHARI TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20ACHARI%20TIKKA.jpg' },
+        { id: 214, name: 'PANEER AFGHANI TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20AFGHANI%20TIKKA.jpg'},
+        { id: 215, name: 'PANEER PUDINA TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20PUDINA%20TIKKA.jpg' },
+        { id: 216, name: 'PANEER KALI MIRCH TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20KALI%20MIRCH%20TIKKA.jpg' },
+        { id: 217, name: 'PANEER PAHADI TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20PAHADI%20TIKKA.jpg' },
+        { id: 218, name: 'PANEER MALAI TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20MALAI%20TIKKA.jpg' },
+        { id: 219, name: 'PANEER SUFIYANA TIKKA', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/PANEER%20SUFIYANA%20TIKKA.jpg' },
+        { id: 220, name: 'TANDOORI MUSHROOM', price: 399, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/TANDOORI%20MUSHROO.jpg' },
+        { id: 221, name: 'TANDOORI ALOO', price: 295, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/alooooooooo.jpg' },
+        { id: 222, name: 'VEGETABLE SEEK KEBAB', price: 245, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/VEGETABLE%20SEEK%20KEBAB.jpg' },
+        { id: 223, name: 'TANDOORI BAGICHA PLATTER', price: 450, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/TANDOORI%20BAGICHA%20PLATTER.jpg' },
+        { id: 224, name: 'TANDOORI GOBI', price: 225, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/TANDOORI%20GOBI.jpg' },
+        { id: 225, name: 'VEGETABLE KEBAB PLATTER', price: 475, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/vegitable%20kaba.jpg' },
+        { id: 226, name: 'TANDOORI SOYA CHAAP', price: 350, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/TANDOORI%20SOYA%20CHAAP.jpg' },
+        { id: 227, name: 'TANDOORI PINEAPPLE', price: 325, type: 'veg', imageUrl:'https://ik.imagekit.io/j1fgksdwx/TANDOORI%20PINEAPPLE.jpg' },
     ]
   },
   {
