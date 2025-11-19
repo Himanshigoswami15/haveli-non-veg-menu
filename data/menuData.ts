@@ -178,7 +178,7 @@ export const menuData: MenuCategory[] = [
       { id: 315, name: 'TANDOORI JHINGA', price: 550, type: 'non-veg', imageUrl: '' },
       { id: 316, name: 'TANDOORI CHICKEN FULL', price: 695, type: 'non-veg', imageUrl: '' },
       { id: 317, name: 'AFGHANI FISH TIKKA', price: 425, type: 'non-veg', imageUrl: '' },
-      { id: 318, name: 'FISH FINGER', price: 425, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/fish%20fingers.jpg?updatedAt=1759605023488' },
+   
     ]
   },
   {

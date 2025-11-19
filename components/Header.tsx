@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import SearchIcon from './icons/SearchIcon';
 import CloseIcon from './icons/CloseIcon';
@@ -27,13 +28,32 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ searchTerm, onSearch }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Sync with external changes (e.g. Clear Search button in App)
   useEffect(() => {
-    if (searchTerm) {
-      setIsSearchOpen(true);
+    if (searchTerm === '') {
+        setLocalSearchTerm('');
+    } else {
+        // If incoming search term is different, and we aren't focused (to avoid overwriting user typing), update.
+        if (document.activeElement !== inputRef.current) {
+             setLocalSearchTerm(searchTerm);
+        }
+        setIsSearchOpen(true);
     }
   }, [searchTerm]);
+
+  // Debounce search input
+  useEffect(() => {
+    const handler = setTimeout(() => {
+        if (localSearchTerm !== searchTerm) {
+            onSearch(localSearchTerm);
+        }
+    }, 300);
+
+    return () => clearTimeout(handler);
+  }, [localSearchTerm, searchTerm, onSearch]);
 
   useEffect(() => {
     if (isSearchOpen && inputRef.current) {
@@ -42,8 +62,13 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, onSearch }) => {
   }, [isSearchOpen]);
 
   const handleClear = () => {
-    onSearch('');
+    setLocalSearchTerm('');
+    onSearch(''); // Clear immediately bypassing debounce for UI responsiveness
     setIsSearchOpen(false);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLocalSearchTerm(e.target.value);
   };
 
   return (
@@ -51,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, onSearch }) => {
       <div className="container mx-auto flex items-center justify-center relative">
         
         {/* Search Component - Top Right Absolute */}
-        <div className={`absolute right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-300 ease-in-out ${isSearchOpen ? 'w-full max-w-[240px]' : 'w-10'}`}>
+        <div className={`absolute right-4 top-4 z-50 transition-all duration-300 ease-in-out ${isSearchOpen ? 'w-full max-w-[240px]' : 'w-10'}`}>
             <div className={`flex items-center justify-end ${isSearchOpen ? 'bg-white/90 shadow-lg rounded-full border border-[#7B241C]/20 p-1 backdrop-blur-sm' : ''}`}>
                 {isSearchOpen ? (
                     <div className="flex items-center w-full pl-3 pr-1">
@@ -59,8 +84,8 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, onSearch }) => {
                         <input 
                             ref={inputRef}
                             type="text" 
-                            value={searchTerm}
-                            onChange={(e) => onSearch(e.target.value)}
+                            value={localSearchTerm}
+                            onChange={handleInputChange}
                             placeholder="Search menu..."
                             className="w-full bg-transparent border-none focus:ring-0 text-[#7B241C] placeholder-[#7B241C]/50 text-sm px-2 py-1 font-sans outline-none"
                         />
