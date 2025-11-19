@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import SearchIcon from './icons/SearchIcon';
+import CloseIcon from './icons/CloseIcon';
 
 // A reusable SVG component for the decorative flourish
 const Flourish: React.FC<{ className?: string }> = ({ className }) => (
@@ -18,11 +20,70 @@ const Flourish: React.FC<{ className?: string }> = ({ className }) => (
     </svg>
 );
 
+interface HeaderProps {
+  searchTerm: string;
+  onSearch: (term: string) => void;
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ searchTerm, onSearch }) => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (searchTerm) {
+      setIsSearchOpen(true);
+    }
+  }, [searchTerm]);
+
+  useEffect(() => {
+    if (isSearchOpen && inputRef.current) {
+        inputRef.current.focus();
+    }
+  }, [isSearchOpen]);
+
+  const handleClear = () => {
+    onSearch('');
+    setIsSearchOpen(false);
+  };
+
   return (
-    <header className="py-4 border-b-2 border-[#7B241C]/20">
-      <div className="container mx-auto flex items-center justify-center">
+    <header className="py-4 border-b-2 border-[#7B241C]/20 bg-[#FAF3E0] relative">
+      <div className="container mx-auto flex items-center justify-center relative">
+        
+        {/* Search Component - Top Right Absolute */}
+        <div className={`absolute right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-300 ease-in-out ${isSearchOpen ? 'w-full max-w-[240px]' : 'w-10'}`}>
+            <div className={`flex items-center justify-end ${isSearchOpen ? 'bg-white/90 shadow-lg rounded-full border border-[#7B241C]/20 p-1 backdrop-blur-sm' : ''}`}>
+                {isSearchOpen ? (
+                    <div className="flex items-center w-full pl-3 pr-1">
+                        <SearchIcon className="h-4 w-4 text-[#7B241C]/70 flex-shrink-0" />
+                        <input 
+                            ref={inputRef}
+                            type="text" 
+                            value={searchTerm}
+                            onChange={(e) => onSearch(e.target.value)}
+                            placeholder="Search menu..."
+                            className="w-full bg-transparent border-none focus:ring-0 text-[#7B241C] placeholder-[#7B241C]/50 text-sm px-2 py-1 font-sans outline-none"
+                        />
+                        <button 
+                            onClick={handleClear}
+                            className="p-1 text-[#7B241C]/60 hover:text-[#7B241C] hover:bg-[#7B241C]/10 rounded-full transition-colors flex-shrink-0"
+                            aria-label="Clear search"
+                        >
+                            <CloseIcon className="h-4 w-4" />
+                        </button>
+                    </div>
+                ) : (
+                    <button 
+                        onClick={() => setIsSearchOpen(true)}
+                        className="p-2 text-[#7B241C] hover:bg-[#7B241C]/10 rounded-full transition-colors"
+                        aria-label="Search"
+                    >
+                        <SearchIcon className="h-6 w-6" />
+                    </button>
+                )}
+            </div>
+        </div>
+
          {/* Left Decorative Element */}
         <div className="hidden md:block flex-1 text-[#7B241C]/80 pr-6 [filter:drop-shadow(0_2px_3px_rgba(123,36,28,0.4))]">
             <Flourish className="w-full h-10" />

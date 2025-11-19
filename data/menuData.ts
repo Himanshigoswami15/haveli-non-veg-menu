@@ -158,6 +158,30 @@ export const menuData: MenuCategory[] = [
     ]
   },
   {
+    category: 'Non-Veg Starters',
+    items: [
+      { id: 300, name: 'TANDOORI CHICKEN (HALF)', price: 375, type: 'non-veg', imageUrl: '' },
+      { id: 301, name: 'AFGHANI CHICKEN TIKKA', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 302, name: 'SPECIAL BHATHI DA MURGH', price: 695, type: 'non-veg', imageUrl: '' },
+      { id: 303, name: 'CHICKEN SEEK KEBAB', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 304, name: 'CHICKEN HARIYALI TIKKA', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 305, name: 'CHICKEN TANGRI KEBAB', price: 395, type: 'non-veg', imageUrl: '' },
+      { id: 306, name: 'CHICKEN MALAI TIKKA', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 307, name: 'ACHARI CHICKEN TIKKA', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 308, name: 'CHICKEN KALI MIRCH TIKKA', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 309, name: 'CHICKEN PAHADI TIKKA', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 310, name: 'CHICKEN GILAFI SEEK KEBAB', price: 349, type: 'non-veg', imageUrl: '' },
+      { id: 311, name: 'MUTTON SEEK KEBAB', price: 495, type: 'non-veg', imageUrl: '' },
+      { id: 312, name: 'MUTTON GILAFI SEEK KEBAB', price: 495, type: 'non-veg', imageUrl: '' },
+      { id: 313, name: 'NONVEG PLATTER', price: 750, type: 'non-veg', imageUrl: '' },
+      { id: 314, name: 'AJWAINE MAHI TIKKA', price: 425, type: 'non-veg', imageUrl: '' },
+      { id: 315, name: 'TANDOORI JHINGA', price: 550, type: 'non-veg', imageUrl: '' },
+      { id: 316, name: 'TANDOORI CHICKEN FULL', price: 695, type: 'non-veg', imageUrl: '' },
+      { id: 317, name: 'AFGHANI FISH TIKKA', price: 425, type: 'non-veg', imageUrl: '' },
+      { id: 318, name: 'FISH FINGER', price: 425, type: 'non-veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/fish%20fingers.jpg?updatedAt=1759605023488' },
+    ]
+  },
+  {
     category: 'Soups',
     items: [
       { id: 101, name: 'Veg Hot & Sour Soup', description: 'Soup with spicy and hot flavours made with fresh veggies, spices, and soy sauce', price: 155, type: 'veg', imageUrl: 'https://ik.imagekit.io/j1fgksdwx/VEG%20HOT%20&%20SOUR%20SOUP.jpg?updatedAt=1759147889598' },

@@ -16,27 +16,39 @@ const App: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   const formatId = (category: string) => category.toLowerCase().replace(/\s+/g, '-');
 
+  const filteredMenuData = useMemo(() => {
+    if (!searchTerm.trim()) return menuData;
+    const lowerTerm = searchTerm.toLowerCase();
+    return menuData.map(category => ({
+      ...category,
+      items: category.items.filter(item => 
+        item.name.toLowerCase().includes(lowerTerm) || 
+        item.description?.toLowerCase().includes(lowerTerm)
+      )
+    })).filter(category => category.items.length > 0);
+  }, [searchTerm]);
+
   useEffect(() => {
-    // Set the first category as active initially
-    if (menuData.length > 0) {
-      setActiveCategory(formatId(menuData[0].category));
+    // Set the first category as active initially if available
+    if (filteredMenuData.length > 0 && !activeCategory) {
+      setActiveCategory(formatId(filteredMenuData[0].category));
     }
 
     const handleScroll = () => {
       const navHeight = 80; // Offset for the sticky nav bar plus some buffer
       let currentSectionId = '';
       
-      for (const section of menuData) {
+      for (const section of filteredMenuData) {
         const sectionId = formatId(section.category);
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
           // If the top of the section is above our threshold, it's a candidate
           if (rect.top <= navHeight) {
-            // FIX: The 'section' object of type MenuCategory does not have an 'id' property. Use 'sectionId' instead.
             currentSectionId = sectionId;
           } else {
             // Once we find a section below the threshold, the previous one was the last valid one.
@@ -47,14 +59,16 @@ const App: React.FC = () => {
 
       // Handle being at the very bottom of the page
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
-        currentSectionId = formatId(menuData[menuData.length - 1].category);
+        if (filteredMenuData.length > 0) {
+          currentSectionId = formatId(filteredMenuData[filteredMenuData.length - 1].category);
+        }
       }
       
       if (currentSectionId) {
         setActiveCategory(currentSectionId);
-      } else if (menuData.length > 0) {
+      } else if (filteredMenuData.length > 0 && window.scrollY < 100) {
          // Fallback to the first category if at the very top
-         setActiveCategory(formatId(menuData[0].category));
+         setActiveCategory(formatId(filteredMenuData[0].category));
       }
     };
 
@@ -62,7 +76,7 @@ const App: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [filteredMenuData, activeCategory]);
 
 
   const handleAddToCart = (item: MenuItem) => {
@@ -97,11 +111,24 @@ const App: React.FC = () => {
 
   return (
     <div className="text-gray-800 relative min-h-screen">
-      <Header />
-      <CategoryNav categories={menuData.map(c => c.category)} activeCategory={activeCategory} />
-      <main className="container mx-auto px-4 py-8 lg:py-12 flex">
+      <Header searchTerm={searchTerm} onSearch={setSearchTerm} />
+      <CategoryNav categories={filteredMenuData.map(c => c.category)} activeCategory={activeCategory} />
+      <main className="container mx-auto px-4 py-8 lg:py-12 flex min-h-[50vh]">
         <div className="w-full">
-          <Menu menuData={menuData} onAddToCart={handleAddToCart} />
+          {filteredMenuData.length > 0 ? (
+            <Menu menuData={filteredMenuData} onAddToCart={handleAddToCart} />
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-2xl text-[#7B241C] font-serif-display">No items found</p>
+              <p className="text-gray-600 mt-2">Try adjusting your search term.</p>
+              <button 
+                onClick={() => setSearchTerm('')}
+                className="mt-4 text-[#7B241C] underline hover:text-[#641E16]"
+              >
+                Clear Search
+              </button>
+            </div>
+          )}
         </div>
       </main>
 
